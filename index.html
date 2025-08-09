@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commission</title>
+  <meta name="author" content="Vsevolod Bokov">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%7COswald%7CNunito">
+</head>
+<body>
+  <!-- display sales confirmations to html -->
+  <div class="display-numers-div">
+    <p id="display-numbers">Earnings report shown here.</p>
+  </div>
+  <script>
+    // init user name
+    let name = prompt("Let's begin. What's your name?");
+    
+    // init sales
+    let sales = 0;
+
+    // init sales input - later converted from string to number and added to sales
+    let salesinput = 0;
+
+    do {
+      // collect sales as string
+      salesinput = prompt("What are your earnings? Enter sales one at a time or enter \"Done\" when finished.");
+
+      // add input to sales amount if it's not sentinel, convert input from string to number
+      if (salesinput.toUpperCase() != "DONE") {
+        sales += Number(salesinput);
+      }
+
+    } while (salesinput.toUpperCase() != "DONE"); // do while input is not sentinel
+
+    // init commission rate
+    let commissionrate = 0.00;
+
+    // logic to set commission rate
+    if (sales <= 0) {
+      commissionrate = 0.00;
+    }
+    else if (sales >= 0.01 && sales <= 499.99) {
+      commissionrate = 0.05;
+    }
+    else if (sales >= 500 && sales <= 999.99) {
+      commissionrate = 0.10;
+    }
+    else {
+      commissionrate = 0.15;
+    }
+
+    // math to define total commission
+    let totalcommision = commissionrate*sales;
+
+    // math to define total earnings
+    let totalearnings = totalcommision+sales;
+
+    // string vars to be displayed in html
+    // numbers are rounded for display to 2 decimal places with .toFixed
+    let displayname = `Hello ${name}, here is your weekly commission report:`;
+    let displayratesales = `Your sales total is $${sales.toFixed(2)}, so your commission rate is ${(commissionrate*100).toFixed(2)}%.`;
+    let displaycommission = `Your total commission is $${totalcommision.toFixed(2)}.`;
+    let displayearnings = `Your total earnings are $${totalearnings.toFixed(2)}.`;
+
+    // js to display string vars to html
+    document.getElementById("display-numbers").innerHTML = displayname + '<br><br>' + displayratesales + '<br><br>' + displaycommission + '<br><br>' + displayearnings;
+
+  </script>
+</body>
+</html>

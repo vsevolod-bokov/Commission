@@ -1,0 +1,20 @@
+body {
+  background-image: url("../images/cash.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  font-family: "Montserrat", "Oswald", "Nunito";
+}
+
+p {
+  font-size: 20px;
+}
+
+.display-numers-div {
+  margin: 40px;
+  padding: 40px;
+  border-style: none;
+  border-radius: 20px;
+  background-color: white;
+}
