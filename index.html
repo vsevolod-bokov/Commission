@@ -11,7 +11,7 @@
 <body>
   <!-- display sales confirmations to html -->
   <div class="display-numers-div">
-    <p id="display-numbers">Earnings report shown here.</p>
+    <p id="display-numbers">Earnings report shown here. Reload page if not seeing prompt.</p>
   </div>
   <script>
     // init user name
@@ -25,7 +25,7 @@
 
     do {
       // collect sales as string
-      salesinput = prompt("What are your earnings? Enter sales one at a time or enter \"Done\" when finished.");
+      salesinput = prompt("Enter the dollar amount for your sales a single sale at a time. Enter \"Done\" when you are finished.");
 
       // add input to sales amount if it's not sentinel, convert input from string to number
       if (salesinput.toUpperCase() != "DONE") {
